@@ -27,11 +27,11 @@ public class RectangleTest {
 		Scanner re=new Scanner(System.in); //Taking input from user
 		System.out.println("The first length: ");
 		int f = re.nextInt();
-		System.out.println("The second length: ");
+		System.out.println("The second breadth: ");
 		int s = re.nextInt();
 		System.out.println("The updated first length: ");
 		int uf = re.nextInt();
-		System.out.println("The updated second length: ");
+		System.out.println("The updated second breadth: ");
 		int us = re.nextInt();
 		Rectangle first=new Rectangle(f,s); //Calling constructor
 		Rectangle second=new Rectangle(uf,us);
