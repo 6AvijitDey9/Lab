@@ -1,4 +1,4 @@
-/* 2. Write a java program to illustrate Calculator class with addition, subtraction, multiplication methods that can take any number of parameters to perform the operation, without using method/constructor overloading.*/
+/* 2. Write a java program to illustrate Calculator class with addition, subtraction, multiplication methods that can take any two number of parameters to perform the operation, without using method/constructor overloading.*/
  
 
 package Assignment;
