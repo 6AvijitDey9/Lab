@@ -22,5 +22,5 @@ package Threads;
 				Odd_Check oc = new Odd_Check();
 				ec.start(); //Calling the first thread to execute
 				Thread.sleep(1000); System.out.println(); //To wait for sometime between two threads
-				oc.start(); ////Calling the second thread to execute
+				oc.start(); //Calling the second thread to execute
 			}}
