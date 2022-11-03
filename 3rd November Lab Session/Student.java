@@ -1,7 +1,6 @@
 package Assignment;
-
 public class Student {
-	public void calculateFeesStructure(Long studentId, Character studentGrade, Double monthlyFees, Boolean isScholarshipEligible) {
+	public void calculateFeesStructure(Long studentId, Character studentGrade, Double monthlyFees, Boolean isScholarshipEligible) { //Method to check and give responce accordingly with given inputs
 		if(studentId!=0 && studentGrade=='A' && isScholarshipEligible==true) {
 			Double fees = (monthlyFees - (monthlyFees*10/100));
 			System.out.println("Student Grade: " + studentGrade);
@@ -23,16 +22,16 @@ public class Student {
 			System.out.println("Monthly Fees: " + monthlyFees);
 			System.out.println("4% fees is exempted, The calculated fees is: " + fees);}
 		else { System.out.println("Not Eligible for Exemption");}}
-	public void compareMarks(Long Maths, Double English) {
+	public void compareMarks(Long Maths, Double English) { //Method to check and give responce accordingly with given inputs
 		if(English>Maths) {System.out.println("English mark is higher than Maths");}
 		else if(English<Maths) {System.out.println("Maths mark is higher than English");}
 		else {System.out.println("Both are Equal");}}
-	public void validateFees(Double Fees) {
+	public void validateFees(Double Fees) { //Method to check and give responce accordingly with given inputs
 		if(Fees.isInfinite()==true) {System.out.println("Fees is infinite");}
 		else if(Fees.isInfinite()==false) {System.out.println("Fees is not infinite");}
 		else {System.out.println(Fees.byteValue());}}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) { //Main Method
 		Student St = new Student();
 		System.out.println("First Method Test......");
 		St.calculateFeesStructure((long)234, 'C', (double)600, true);
