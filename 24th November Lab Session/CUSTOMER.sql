@@ -15,7 +15,7 @@ select * from CUSTOMER;
 update CUSTOMER set Phone=5555555 where Cust_id='A02' and Cust_id='A04'; #Update phone number with criteria
 update CUSTOMER set DOB=null where Cust_id='A03' and Cust_id='A05'; #Update DOB with some criteria
 select * from CUSTOMER; #Display the updated table
-delete from CUSTOMER where Cust_id='A01' and Cust_id='A05'; #Delete 2 rows from table
+delete from CUSTOMER where Cust_id='A01' or Cust_id='A05'; #Delete 2 rows from table
 truncate table CUSTOMER; #Delete rows from table
 insert into CUSTOMER values #Insert new values in table
 ('AD01', 'Anand', 'Sadhu', 'KA', 7059331, '1900-01-15', 9000.25, '1900-01-15'),
