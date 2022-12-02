@@ -71,6 +71,13 @@ public class EmployeeUploader {
 	    	e_contact=sc.nextInt();
 	    	System.out.println("Enter Department Id : ");
 	    	d_id=sc.nextInt();
+		 if(e_salary<1000) {		
+	            throw new LessSalaryAmountException("Salary can not be less than 1000/-");
+	        }if(d_id==0){ //Creating custom Exception Messages
+	            throw new DepartmentNotFoundException("Department does not exists");
+	        }
+	    	System.out.println(".........DataValue Inserted............");
+		}
 	    	Connection conn=EmployeeUploader.con();
 	    	PreparedStatement stmt=conn.prepareStatement("insert into Employee values(?,?,?,?,?,?)");
 	    	stmt.setInt(1, e_id); //saving employee details in database
@@ -80,17 +87,10 @@ public class EmployeeUploader {
 	    	stmt.setInt(5, e_contact);
 	    	stmt.setInt(6, d_id);
 	    	stmt.executeUpdate();
-	        if((d_id==e_id) || (d_name==e_name)){ //if already not present in DB
-	            throw new DuplicateDataException("Employee already exists");
 	        }
-	        if(e_salary<1000) {		
-	            throw new LessSalaryAmountException("Salary can not be less than 1000/-");
-	        }if(d_id==0){ //Creating custom Exception Messages
-	            throw new DepartmentNotFoundException("Department does not exists");
-	        }
-	    	System.out.println(".........DataValue Inserted............");
-		}
+	       
 		public void retrieveEmployeeDetails() throws SQLException{
+			Scanner sc = new Scanner(System.in);
 			Connection conn = EmployeeUploader.con();
 			Statement stmt = conn.createStatement();
 			ResultSet rs1=stmt.executeQuery("select * from Department");
@@ -102,6 +102,16 @@ public class EmployeeUploader {
 			ResultSet rs2=stmt.executeQuery("select * from Employee");
 			while(rs2.next()) { //Print all the details from Employee table database
 				System.out.println(rs2.getInt(1)+" "+rs2.getString(2)+" "+rs2.getString(3)+" "+rs2.getFloat(4)+" "+rs2.getInt(5));			
+			}
+			System.out.println("Please enter employee id to search in DataBase: ");
+			int eid = sc.nextInt();
+			ResultSet rs3=stmt.executeQuery("Select Employee_Id, Employee_Name, Employee_Address, Employee_Salary, Employee_Contact_No, Department_Id from Employee where Employee_Id="+eid);
+			if(rs3.next()){
+				throw new DuplicateDataException(".......Employee already exists........."); //Throwing exception for Duplicate employee data
+				System.out.println(rs3.getInt(1)+" "+rs3.getString(2)+" "+rs3.getString(3)+" "+rs3.getFloat(4)+" "+rs3.getInt(5)+" "+rs3.getInt(6));
+			}
+			else{
+				System.out.println(".........Employee ID not present..........");
 			}
 			System.out.println("............................\n");
 		}
