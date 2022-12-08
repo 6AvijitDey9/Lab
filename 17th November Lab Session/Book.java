@@ -1,7 +1,7 @@
 /*Design a class Book containing following members:
 -bookID title
--text text
--price
+-author text
+-price float
 
 Define Parameterized constructor to initialize Book object. Perform the below validations
 -float
